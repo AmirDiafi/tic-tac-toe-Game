@@ -1,0 +1,291 @@
+body {
+    padding: 0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 0;
+}
+
+header h1, header p {
+    margin: 5px auto;
+}
+
+header .users-and-score{
+    width: 80%;
+    margin: 10px auto;
+    border: 1px solid #eee;
+    border-radius: 7px;
+    background-color: rgb(53, 7, 25);
+    padding: 30px 10px;
+    color: #FFF;
+    position: relative;
+}
+
+header .vs{
+    font-size: 20px;
+    margin: 0;
+}
+
+header .users-and-score .user {
+    display: inline-block;
+    position: absolute;
+    top: 7%;
+    width: 150px;
+    border-radius: 7px;
+}
+
+header .users-and-score .user p:first-child {
+    font-weight: bold;
+}
+
+header .users-and-score .user p:first-child img {
+    width: 20px;
+    display: inline-block;
+    margin: 5px 5px -5px;
+}
+
+.user.one {
+    right: 20px
+}
+
+.user.tow {
+    left: 20px
+}
+
+.user-active{
+    border: 1px solid #eee;
+    background: rgb(223, 13, 13);
+    color :#FFF;
+}
+
+.container {
+    width: 50%;
+    border: 1px solid #333;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 7px;
+    background-color: rgba(5, 61, 58, 0.13);
+}
+
+.container .item {
+    display: inline-block;
+    width: 13%;
+    height: 70px;
+    margin-right: .5%;
+    margin-left: .5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #333;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.082);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all .2s linear;
+}
+
+.container .item img{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: transparent;
+    transition: all .2s linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+const elements = document.querySelectorAll('.item')
+const userOne = document.querySelector('.user.one')
+const userTow = document.querySelector('.user.tow')
+const userOneScore = document.querySelector('.score-user1')
+const userTowScore = document.querySelector('.score-user2')
+const chance1 = ["one", "tow", "three", "four", "five", "six"]
+const chance2 = ["seven", "eight", "nine", "ten", "eleven", "twelve"]
+const chance3 = ["therteen", "fourteen", "fiveteen", "sixteen", "seventeen", "eighteen"]
+const chance4 = ["nineteen","twenty","twentyone", "twentytow", "twentythree", "twentyfour"]
+const chance5 = ["twentyfive", "twentysix", "twentyseven", "twentyeight", "twentynine", "thirty" ]
+const chance6 = ["thirtyone","thirtytow", "thirtythree", "thirtyfour", "thirtyfive", "thirtysix"]
+const chance7 = ["one", "seven", "therteen", "nineteen", "twentyfive", "thirtyone"]
+const chance8 = ["tow", "eight", "fourteen","twenty", "twentysix", "thirtytow"]
+const chance9 = ["three", "nine", "fiveteen","twentyone", "twentyseven", "thirtythree"]
+const chance10 = ["four", "ten", "sixteen","twentytow", "twentyeight", "thirtyfour"]
+const chance11 = ["five", "eleven", "seventeen","twentythree", "twentynine", "thirtyfive"]
+const chance12 = ["six", "twelve", "eighteen","twentyfour", "thirty", "thirtysix"]
+const chance13 = ["one", "eight", "fiveteen","twentytow", "twentynine", "thirtysix"]
+const chance14 = ["six", "eleven", "sixteen","twentyone", "twentysix", "thirtyone"]
+const allChances = [chance1, chance2, chance3, chance4, chance5, chance6, chance7, chance8, chance9, chance10, chance11, chance12, chance13, chance14]
+let user = "user-one"
+let arrUserOne = []
+let arrUserTow = []
+let userOneScoreCount = 0
+let userTowScoreCount = 0
+
+function userFunction(userElement, otherUserElement, userTurn) {
+    userElement.classList.add("user-active")
+    otherUserElement.classList.remove("user-active")
+    user = userTurn
+    arrUserOne = []
+    arrUserTow = []
+    setTimeout(function () {
+        for (const item of elements) {
+            item.style.transform = "scale(1)"
+        }
+    }, 500);
+    setTimeout(function () {
+        for (const item of elements) {
+            item.querySelector('img').setAttribute('src', "imgs/default .jpg")
+        }
+    }, 1000);
+}
+
+function loopTheChance(param) {
+    for (let i = 0; i < param.length; i++) {
+        if (arrUserOne.includes(`${param[i]}`)&&arrUserOne.includes(`${param[i+1]}`)&&arrUserOne.includes(`${param[i+2]}`)&&arrUserOne.includes(`${param[i+3]}`)&&arrUserOne.includes(`${param[i+4]}`)&&arrUserOne.includes(`${param[i+5]}`)) {
+            document.querySelector(`#${param[i]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+1]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+2]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+3]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+4]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+5]}`).style.transform = "scale(1.1)"
+            userOneScore.textContent = ++userOneScoreCount
+            userFunction(userOne, userTow, "user-one")
+
+        } else if (arrUserTow.includes(`${param[i]}`)&&arrUserTow.includes(`${param[i+1]}`)&&arrUserTow.includes(`${param[i+2]}`)&&arrUserTow.includes(`${param[i+3]}`)&&arrUserTow.includes(`${param[i+4]}`)&&arrUserTow.includes(`${param[i+5]}`)) {
+            document.querySelector(`#${param[i]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+1]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+2]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+3]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+4]}`).style.transform = "scale(1.1)"
+            document.querySelector(`#${param[i+5]}`).style.transform = "scale(1.1)"
+            userTowScore.textContent = ++userTowScoreCount
+            userFunction(userTow, userOne, "user-tow")
+        }
+    }
+}
+
+for (const element of elements) {
+    element.onclick = function () {
+        if (user == "user-one") {
+            element.querySelector('img').setAttribute('src', "imgs/x.jpg")
+            userOne.classList.remove("user-active")
+            userTow.style.transform = 'scale(1.1)'
+            userOne.style.transform = 'scale(.9)'
+            userTow.classList.add("user-active")
+            user = "user-tow"
+            arrUserOne.push(element.id)
+        } else if (user == "user-tow") {
+            element.querySelector('img').setAttribute('src', "imgs/o.jpg")
+            userOne.classList.add("user-active")
+            userTow.classList.remove("user-active")
+            userOne.style.transform = 'scale(1.1)'
+            userTow.style.transform = 'scale(.9)'
+            user = "user-one"
+            arrUserTow.push(element.id)
+        }
+
+        for (let i = 0; i < allChances.length; i++) {
+            loopTheChance(allChances[i])
+        }
+        
+    }
+} */
